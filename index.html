@@ -1,67 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SweatLock - Unlock Your Discipline</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --primary: #FF4B4B; --dark: #0F1115; --darky: #181A20; --text: #ffffff; --text-muted: #9CA3AF; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-        .bg-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; z-index: -1; mask-image: linear-gradient(to bottom, black 40%, transparent 100%); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        header { padding: 24px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--text); letter-spacing: -1px; display: flex; align-items: center; gap: 12px; }
-        .logo span { color: var(--primary); }
-        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-        .nav-link:hover { color: var(--primary); }
-        .hero { padding: 80px 0; text-align: center; position: relative; }
-        h1 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 4rem; line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #fff 0%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
-        .subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
-        .btn { display: inline-flex; align-items: center; gap: 12px; background: var(--primary); color: white; padding: 16px 32px; border-radius: 99px; text-decoration: none; font-weight: 600; font-family: 'Outfit', sans-serif; transition: transform 0.2s, box-shadow 0.2s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(255, 75, 75, 0.4); }
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 80px 0; }
-        .feature-card { background: var(--darky); padding: 32px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.1); }
-        .icon-box { width: 48px; height: 48px; background: rgba(255, 75, 75, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 24px; font-size: 1.5rem; }
-        .feature-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; margin-bottom: 12px; }
-        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
-        footer { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 80px; text-align: center; }
-        .footer-links { margin-bottom: 24px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 12px; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--primary); }
+        :root {
+            --primary: #FF4B4B;
+            --dark: #0F1115;
+            --darky: #181A20;
+            --text: #ffffff;
+            --text-muted: #9CA3AF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Subtle Grid Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--text);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary);
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: 900px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 580px;
+            margin: 0 auto 48px;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(255, 75, 75, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 75, 75, 0.4);
+        }
+
+        .btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0 100px;
+        }
+
+        .feature-card {
+            background: var(--darky);
+            padding: 40px 32px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.08);
+            background: #1a1d24;
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 75, 75, 0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .icon-box svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .features {
+                gap: 16px;
+            }
+
+            .feature-card {
+                padding: 32px 24px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="bg-grid"></div>
+
     <div class="container">
         <header>
-            <div class="logo">🧠 Sweat<span>Lock</span></div>
+            <div class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg> <!-- Heart/Health icon as logo placeholder -->
+                SweatLock
+            </div>
+            <nav>
+                <a href="mailto:tungaeddystudio@gmail.com" class="nav-link" id="contact-link">Contact</a>
+            </nav>
         </header>
+
         <section class="hero">
-            <h1>No Reps.<br>No Reels.</h1>
-            <p class="subtitle">Stop doomscrolling. SweatLock forces you to complete physical exercises to unlock your addictive apps. Earn your screen time.</p>
+            <h1 id="hero-title">No Reps.<br>No Reels.</h1>
+            <p class="subtitle" id="hero-subtitle">
+                Stop doomscrolling. SweatLock forces you to complete physical exercises to unlock your addictive apps.
+                Earn your screen time.
+            </p>
             <div>
-                <!-- Buraya kendi play store linkini koyabilirsin ileride -->
-                <a href="#" class="btn">
-                    Download on Google Play
+                <a href="https://play.google.com/store/apps/details?id=com.sweatlock.app" class="btn" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3.609 1.814L13.792 12 3.61 22.186a2.049 2.049 0 01-2.049-2.05V3.863a2.05 2.05 0 012.048-2.05zM15.485 13.682l2.302 2.302 4.14-2.333a1.59 1.59 0 000-2.768l-4.14-2.333-2.302 2.302 5.094 2.895-5.094-2.895z" />
+                    </svg>
+                    <span id="download-btn">Download on Google Play</span>
                 </a>
             </div>
         </section>
+
         <section class="features">
-            <div class="feature-card"><div class="icon-box">🏋️</div><h3>Physical Payment</h3><p>Want to open TikTok? That will be 5 squats.</p></div>
-            <div class="feature-card"><div class="icon-box">🤖</div><h3>AI Powered</h3><p>Advanced AI verifies your form in real-time.</p></div>
-            <div class="feature-card"><div class="icon-box">🧠</div><h3>Willpower Mode</h3><p>Strict mode ensures no cheating.</p></div>
+            <div class="feature-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 2v20M2 12h20" />
+                    </svg> <!-- Dumbbell simplified -->
+                </div>
+                <h3 id="feat1-title">Physical Payment</h3>
+                <p id="feat1-desc">Want access to addictive apps? That will be 15 squats. Pay with sweat, not just time.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3" />
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                    </svg> <!-- AI/Settings Gear -->
+                </div>
+                <h3 id="feat2-title">AI Powered</h3>
+                <p id="feat2-desc">Our smart AI technology verifies your exercise form in real-time through your camera.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg> <!-- Shield -->
+                </div>
+                <h3 id="feat3-title">Iron Willpower</h3>
+                <p id="feat3-desc">Strict blocking mode ensures you can't bypass the lock until you've completed your
+                    reps.</p>
+            </div>
         </section>
+
         <footer>
             <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a> <!-- Burası önemli, eski sayfana gidiyor -->
-                <a href="mailto:tungaeddystudio@gmail.com">Contact</a>
+                <a href="privacy.html" id="privacy-link">Privacy Policy</a>
+                <a href="mailto:tungaeddystudio@gmail.com" id="contact-footer">Contact Support</a>
             </div>
-            <p style="color: #555; font-size: 14px;">&copy; 2026 TungaEddyStudio.</p>
+            <p class="copyright">&copy; 2026 TungaEddyStudio. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Localization Logic
+        const translations = {
+            'en': {
+                'hero-title': 'No Reps.<br>No Reels.',
+                'hero-subtitle': 'Stop doomscrolling. SweatLock forces you to complete physical exercises to unlock your addictive apps. Earn your screen time.',
+                'download-btn': 'Download on Google Play',
+                'feat1-title': 'Physical Payment',
+                'feat1-desc': 'Want access to addictive apps? That will be 15 squats. Pay with sweat, not just time.',
+                'feat2-title': 'AI Powered',
+                'feat2-desc': 'Our smart AI technology verifies your exercise form in real-time through your camera.',
+                'feat3-title': 'Iron Willpower',
+                'feat3-desc': 'Strict blocking mode ensures you can\'t bypass the lock until you\'ve completed your reps.',
+                'contact-link': 'Contact',
+                'privacy-link': 'Privacy Policy',
+                'contact-footer': 'Contact Support'
+            },
+            'tr': {
+                'hero-title': 'Egzersiz Yoksa<br>Reels de Yok.',
+                'hero-subtitle': 'Kaydırmayı bırak, harekete geç. SweatLock, bağımlısı olduğun uygulamaları açmak için seni egzersiz yapmaya zorlar. Ekran süresini hak et.',
+                'download-btn': 'Google Play\'den İndir',
+                'feat1-title': 'Bedelini Terle Öde',
+                'feat1-desc': 'TikTok veya Instagram mı istiyorsun? Bedeli 15 squat. Zamanınla değil, terinle öde.',
+                'feat2-title': 'Yapay Zeka Destekli',
+                'feat2-desc': 'Akıllı yapay zeka teknolojimiz, kameranızı kullanarak egzersiz formunuzu gerçek zamanlı doğrular.',
+                'feat3-title': 'Çelik İrade Modu',
+                'feat3-desc': 'Katı engelleme modu, egzersizleri tamamlamadan kilidi açmanıza asla izin vermez.',
+                'contact-link': 'İletişim',
+                'privacy-link': 'Gizlilik Politikası',
+                'contact-footer': 'Destek İletişim'
+            }
+        };
+
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.toLowerCase().startsWith('tr')) {
+                return 'tr';
+            }
+            return 'en';
+        }
+
+        function applyTranslations() {
+            const lang = detectLanguage();
+            const t = translations[lang];
+
+            if (lang === 'en') return; // Default is already English HTML
+
+            document.getElementById('hero-title').innerHTML = t['hero-title'];
+            document.getElementById('hero-subtitle').textContent = t['hero-subtitle'];
+            document.getElementById('download-btn').textContent = t['download-btn'];
+
+            document.getElementById('feat1-title').textContent = t['feat1-title'];
+            document.getElementById('feat1-desc').textContent = t['feat1-desc'];
+
+            document.getElementById('feat2-title').textContent = t['feat2-title'];
+            document.getElementById('feat2-desc').textContent = t['feat2-desc'];
+
+            document.getElementById('feat3-title').textContent = t['feat3-title'];
+            document.getElementById('feat3-desc').textContent = t['feat3-desc'];
+
+            document.getElementById('contact-link').textContent = t['contact-link'];
+            document.getElementById('privacy-link').textContent = t['privacy-link'];
+            document.getElementById('contact-footer').textContent = t['contact-footer'];
+        }
+
+        // Run on load
+        applyTranslations();
+    </script>
 </body>
+
 </html>
