@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="TungaEddyStudio: We build digital discipline. Creators of SweatLock. Mobile, PC, and Future Platforms.">
-    <meta name="keywords" content="TungaEddyStudio, SweatLock, Indie Game Studio, App Development, Digital Discipline">
-    <meta name="author" content="TungaEddyStudio">
+        content="Tunga Eddy: We build digital discipline. Creators of SweatLock. Mobile, PC, and Future Platforms.">
+    <meta name="keywords" content="Tunga Eddy, SweatLock, Indie Game Studio, App Development, Digital Discipline">
+    <meta name="author" content="Tunga Eddy">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="TungaEddyStudio - Crafting Digital Discipline">
+    <meta property="og:title" content="Tunga Eddy - Crafting Digital Discipline">
     <meta property="og:description" content="Premium mobile and PC experiences. Creators of SweatLock.">
 
-    <title>TungaEddyStudio</title>
+    <title>Tunga Eddy</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,30 +72,8 @@
 
         /* --- Background Effects --- */
         .ambient-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            filter: blur(80px);
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: pulseGlow 10s infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% {
-                opacity: 0.5;
-                transform: translateX(-50%) scale(0.8);
-            }
-
-            100% {
-                opacity: 0.8;
-                transform: translateX(-50%) scale(1.1);
-            }
+            display: none;
+            /* Removed in favor of premium backgrounds */
         }
 
         /* --- Layout --- */
@@ -195,6 +173,10 @@
             padding: 200px 0 120px;
             text-align: center;
             position: relative;
+            background-image: linear-gradient(to bottom, rgba(3, 3, 5, 0.8), var(--bg-deep)), url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         h1 {
@@ -271,8 +253,21 @@
         }
 
         /* --- Featured Project (SweatLock) --- */
+        section#work {
+            position: relative;
+            background-image: linear-gradient(to bottom, var(--bg-deep), rgba(3, 3, 5, 0.9)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-top: none;
+            /* Seamless blend */
+        }
+
         .project-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            background: rgba(10, 10, 15, 0.7);
+            /* More opaque for readability over image */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
             overflow: hidden;
@@ -355,6 +350,12 @@
         }
 
         /* --- Roadmap Grid --- */
+        section#roadmap {
+            background-image: linear-gradient(to bottom, rgba(3, 3, 5, 0.95), var(--bg-deep)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
         .roadmap-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -363,7 +364,8 @@
 
         .roadmap-item {
             padding: 32px;
-            background: var(--bg-surface);
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             position: relative;
@@ -393,8 +395,13 @@
         }
 
         /* --- Contact --- */
+        section#contact {
+            background-image: linear-gradient(to top, rgba(3, 3, 5, 0.9), var(--bg-deep));
+        }
+
         .contact-box {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+            background: rgba(10, 10, 15, 0.6);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
             padding: 60px;
@@ -408,6 +415,7 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
+            background: var(--bg-deep);
         }
 
         .footer-links a {
@@ -443,14 +451,11 @@
 
 <body>
 
-    <!-- Background Ambient Glow -->
-    <div class="ambient-glow"></div>
-
     <!-- Navigation -->
     <nav>
         <a href="#" class="nav-logo">
             <div style="width:20px; height:20px; background:var(--accent-primary); border-radius:4px;"></div>
-            TungaEddyStudio
+            Tunga Eddy
         </a>
         <div class="nav-links">
             <a href="#work" id="nav-work">Work</a>
@@ -553,7 +558,7 @@
         <section id="about">
             <div style="max-width:800px;">
                 <span class="label" id="label-studio">The Studio</span>
-                <h2 id="about-title">About TungaEddyStudio</h2>
+                <h2 id="about-title">About Tunga Eddy</h2>
                 <p style="font-size:1.1rem; line-height:1.8; color:var(--text-muted);" id="about-text">
                     Founded with a singular mission: to reclaim human agency in a digital world.
                     We believe technology should serve us, not drain us. Our apps are designed to create friction where
@@ -578,10 +583,9 @@
         <footer>
             <div class="footer-links" style="margin-bottom:20px;">
                 <a href="privacy.html" id="link-privacy">Privacy Policy</a>
-                <a href="app-ads.txt" target="_blank">AdMob Info</a>
                 <a href="mailto:tungaeddystudio@gmail.com" id="link-support">Support</a>
             </div>
-            <p>&copy; 2026 TungaEddyStudio. All rights reserved.</p>
+            <p>&copy; 2026 Tunga Eddy. All rights reserved.</p>
         </footer>
     </div>
 
@@ -612,7 +616,7 @@
                 'phase3-desc': 'Desktop solutions for productivity management and hardcore gaming integration.',
 
                 'label-studio': 'The Studio',
-                'about-title': 'About TungaEddyStudio',
+                'about-title': 'About Tunga Eddy',
                 'about-text': 'Founded with a singular mission: to reclaim human agency in a digital world. We believe technology should serve us, not drain us. Our apps are designed to create friction where it\'s needed and flow where it matters.',
 
                 'contact-title': 'Ready to collaborate?',
