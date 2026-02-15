@@ -37,6 +37,9 @@
             color: var(--text-main);
             overflow-x: hidden;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         a {
@@ -65,6 +68,7 @@
             background: linear-gradient(to right, #fff, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
@@ -165,6 +169,7 @@
             color: var(--text-muted);
             cursor: pointer;
             font-weight: 600;
+            font-family: 'Outfit', sans-serif;
         }
 
         .lang-btn.active {
@@ -225,6 +230,7 @@
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
+            border: 1px solid var(--glass-border);
         }
 
         .project-visual {
@@ -306,6 +312,9 @@
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 1px solid var(--glass-border);
+            background: var(--bg-deep);
         }
 
         .footer-links a {
@@ -380,104 +389,133 @@
                         The ultimate digital detox tool. Lock your apps and unlock them only by performing physical
                         exercises verified by AI.
                     </p>
-                    'nav-about': 'About',
-                    'nav-contact': 'Contact',
+                    <a href="https://play.google.com/store/apps/details?id=com.sweatlock.app" target="_blank"
+                        class="btn-glow">
+                        <span id="btn-play">Get on Google Play</span>
+                    </a>
+                </div>
+                <div class="project-visual">
+                    <div class="phone-mockup">
+                        <div style="font-size:3rem; margin-bottom:10px;">🔒</div>
+                        <div style="color:#ff5555; font-weight:bold;">LOCKED</div>
+                        <div style="color:#888; font-size:0.8rem; margin-top:5px;">15 Squats to unlock</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    'hero-title': 'Crafting Digital<br><span>Discipline.</span>',
-                    'hero-subtitle': 'We build premium experiences that bridge the physical and digital worlds. Focusing
-                    on health, productivity, and gaming.',
-                    'hero-cta': 'View Our Work',
+    <section id="roadmap">
+        <div class="container">
+            <h2 id="roadmap-title">Roadmap</h2>
+            <div class="roadmap-grid">
+                <div class="roadmap-card">
+                    <span class="date" id="phase1-date">Current Phase</span>
+                    <h3>SweatLock V2</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;" id="phase1-desc">Introducing Social Battle
+                        Mode and Focus Leagues.</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="date" id="phase2-date">Q3 2026</span>
+                    <h3>iOS Expansion</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;" id="phase2-desc">Bringing the SweatLock
+                        experience to Apple devices.</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="date" id="phase3-date">Future</span>
+                    <h3>PC & Cross-Platform</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;" id="phase3-desc">Desktop solutions for
+                        productivity styling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    'label-featured': 'Featured Project',
-                    'work-details': 'Seamlessly integrates physical activity into your digital life.',
-                    'sweatlock-details': 'Seamlessly integrates physical activity into your digital life. Features
-                    real-time pose detection, strict locking modes, and a reward system built on sweat.',
-                    'btn-play': 'Get on Google Play',
+    <section id="about">
+        <div class="container" style="text-align: center; max-width: 800px;">
+            <h2 id="about-title">About Tunga Eddy</h2>
+            <p style="color:var(--text-muted); font-size:1.1rem;" id="about-text">
+                Founded with a singular mission: to reclaim human agency in a digital world. We believe technology
+                should serve us, not drain us.
+            </p>
+        </div>
+    </section>
 
-                    'label-roadmap': 'Future Plans',
-                    'roadmap-title': 'Roadmap',
-                    'phase1-date': 'Current Phase',
-                    'phase1-desc': 'Introducing Social Battle Mode and Focus Leagues. Compete with friends to stay
-                    disciplined.',
-                    'phase2-date': 'Q3 2026',
-                    'phase2-desc': 'Bringing the SweatLock experience to Apple devices with full ecosystem
-                    integration.',
-                    'phase3-date': 'Future',
-                    'phase3-desc': 'Desktop solutions for productivity management and hardcore gaming integration.',
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2 id="contact-title">Ready to collaborate?</h2>
+                <p style="margin-bottom: 30px; color:var(--text-muted);" id="contact-subtitle">We are always open to new
+                    ideas and partnerships.</p>
+                <a href="mailto:tungaeddystudio@gmail.com" class="btn-glow" id="contact-btn">Email Us</a>
+            </div>
+        </div>
+    </section>
 
-                    'label-studio': 'The Studio',
-                    'about-title': 'About Tunga Eddy',
-                    'about-text': 'Founded with a singular mission: to reclaim human agency in a digital world. We
-                    believe technology should serve us, not drain us. Our apps are designed to create friction where
-                    it\'s needed and flow where it matters.',
+    <footer>
+        <div class="container">
+            <div class="footer-links" style="margin-bottom: 20px;">
+                <a href="privacy.html" id="link-privacy">Privacy Policy</a>
+                <a href="mailto:tungaeddystudio@gmail.com" id="link-support">Support</a>
+            </div>
+            <p>&copy; 2026 Tunga Eddy. All rights reserved.</p>
+        </div>
+    </footer>
 
-                    'contact-title': 'Ready to collaborate?',
-                    'contact-subtitle': 'We are always open to new ideas and partnerships.',
-                    'contact-btn': 'Email Us',
+    <script>
+        const content = {
+            'en': {
+                'nav-work': 'Work', 'nav-roadmap': 'Roadmap', 'nav-about': 'About', 'nav-contact': 'Contact',
+                'hero-title': 'Crafting Digital<br>Discipline.',
+                'hero-subtitle': 'We build premium experiences that bridge the physical and digital worlds. Focusing on health, productivity, and gaming.',
+                'hero-cta': 'View Our Work',
+                'work-title': 'Featured Project',
+                'sweatlock-details': 'Seamlessly integrates physical activity into your digital life. Features real-time pose detection, strict locking modes, and a reward system built on sweat.',
+                'btn-play': 'Get on Google Play',
+                'roadmap-title': 'Roadmap',
+                'phase1-date': 'Current Phase', 'phase1-desc': 'Introducing Social Battle Mode and Focus Leagues. Compete with friends to stay disciplined.',
+                'phase2-date': 'Q3 2026', 'phase2-desc': 'Bringing the SweatLock experience to Apple devices with full ecosystem integration.',
+                'phase3-date': 'Future', 'phase3-desc': 'Desktop solutions for productivity management and hardcore gaming integration.',
+                'about-title': 'About Tunga Eddy', 'about-text': 'Founded with a singular mission: to reclaim human agency in a digital world. We believe technology should serve us, not drain us. Our apps are designed to create friction where it\'s needed and flow where it matters.',
+                'contact-title': 'Ready to collaborate?', 'contact-subtitle': 'We are always open to new ideas and partnerships.', 'contact-btn': 'Email Us',
+                'link-privacy': 'Privacy Policy', 'link-support': 'Support'
+            },
+            'tr': {
+                'nav-work': 'Projeler', 'nav-roadmap': 'Yol Haritası', 'nav-about': 'Hakkımızda', 'nav-contact': 'İletişim',
+                'hero-title': 'Dijital Disiplini<br>Tasarlıyoruz.',
+                'hero-subtitle': 'Fiziksel ve dijital dünyayı birleştiren premium deneyimler. Sağlık, üretkenlik ve oyun odaklı.',
+                'hero-cta': 'Projeleri Gör',
+                'work-title': 'Öne Çıkan Proje',
+                'sweatlock-details': 'Fiziksel aktiviteyi dijital hayatınıza sorunsuzca entegre eder. Gerçek zamanlı poz algılama, katı kilitleme modları ve ter dökmeye dayalı ödül sistemi.',
+                'btn-play': 'Google Play\'de İndir',
+                'roadmap-title': 'Yol Haritası',
+                'phase1-date': 'Mevcut Aşama', 'phase1-desc': 'Sosyal Savaş Modu ve Odak Ligleri. Arkadaşlarınızla disiplin için yarışın.',
+                'phase2-date': '3. Çeyrek 2026', 'phase2-desc': 'Tam ekosistem entegrasyonu ile SweatLock deneyimini Apple cihazlarına taşıyoruz.',
+                'phase3-date': 'Gelecek', 'phase3-desc': 'Üretkenlik yönetimi ve hardcore oyun entegrasyonu için masaüstü çözümleri.',
+                'about-title': 'Tunga Eddy Hakkında', 'about-text': 'Tek bir misyonla kuruldu: Dijital dünyada insan iradesini geri kazanmak. Teknolojinin bizi tüketmek yerine bize hizmet etmesi gerektiğine inanıyoruz. Uygulamalarımız, gereken yerde sürtünme, önemli olan yerde akış yaratmak için tasarlandı.',
+                'contact-title': 'İşbirliğine hazır mısınız?', 'contact-subtitle': 'Yeni fikirlere ve ortaklıklara her zaman açığız.', 'contact-btn': 'Bize E-posta Gönder',
+                'link-privacy': 'Gizlilik Politikası', 'link-support': 'Destek'
+            }
+        };
 
-                    'link-privacy': 'Privacy Policy',
-                    'link-support': 'Support'
-                    },
-                    'tr': {
-                    'nav-work': 'Projeler',
-                    'nav-roadmap': 'Yol Haritası',
-                    'nav-about': 'Hakkımızda',
-                    'nav-contact': 'İletişim',
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+            const t = content[lang];
+            for (let key in t) {
+                const el = document.getElementById(key);
+                if (el) el.innerHTML = t[key];
+            }
+        }
 
-                    'hero-title': 'Dijital Disiplini<br><span>Tasarlıyoruz.</span>',
-                    'hero-subtitle': 'Fiziksel ve dijital dünyayı birleştiren premium deneyimler. Sağlık, üretkenlik ve
-                    oyun odaklı.',
-                    'hero-cta': 'Projeleri Gör',
-
-                    'label-featured': 'Öne Çıkan Proje',
-                    'work-details': 'Fiziksel aktiviteyi dijital hayatınıza sorunsuzca entegre eder.',
-                    'sweatlock-details': 'Fiziksel aktiviteyi dijital hayatınıza sorunsuzca entegre eder. Gerçek zamanlı
-                    poz algılama, katı kilitleme modları ve ter dökmeye dayalı ödül sistemi.',
-                    'btn-play': 'Google Play\'de İndir',
-
-                    'label-roadmap': 'Gelecek Planları',
-                    'roadmap-title': 'Yol Haritası',
-                    'phase1-date': 'Mevcut Aşama',
-                    'phase1-desc': 'Sosyal Savaş Modu ve Odak Ligleri. Arkadaşlarınızla disiplin için yarışın.',
-                    'phase2-date': '3. Çeyrek 2026',
-                    'phase2-desc': 'Tam ekosistem entegrasyonu ile SweatLock deneyimini Apple cihazlarına taşıyoruz.',
-                    'phase3-date': 'Gelecek',
-                    'phase3-desc': 'Üretkenlik yönetimi ve hardcore oyun entegrasyonu için masaüstü çözümleri.',
-
-                    'label-studio': 'Stüdyo',
-                    'about-title': 'Tunga Eddy Hakkında',
-                    'about-text': 'Tek bir misyonla kuruldu: Dijital dünyada insan iradesini geri kazanmak. Teknolojinin
-                    bizi tüketmek yerine bize hizmet etmesi gerektiğine inanıyoruz. Uygulamalarımız, gereken yerde
-                    sürtünme, önemli olan yerde akış yaratmak için tasarlandı.',
-
-                    'contact-title': 'İşbirliğine hazır mısınız?',
-                    'contact-subtitle': 'Yeni fikirlere ve ortaklıklara her zaman açığız.',
-                    'contact-btn': 'Bize E-posta Gönder',
-
-                    'link-privacy': 'Gizlilik Politikası',
-                    'link-support': 'Destek'
-                    }
-                    };
-
-                    function setLanguage(lang) {
-                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                    document.getElementById('btn-' + lang).classList.add('active');
-
-                    const t = content[lang];
-                    for (let key in t) {
-                    const el = document.getElementById(key);
-                    if (el) el.innerHTML = t[key];
-                    }
-                    }
-
-                    // Auto Detect
-                    const browserLang = navigator.language || navigator.userLanguage;
-                    if (browserLang.toLowerCase().includes('tr')) {
-                    setLanguage('tr');
-                    } else {
-                    setLanguage('en');
-                    }
-                    </script>
+        // Auto Detect
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang.toLowerCase().includes('tr')) {
+            setLanguage('tr');
+        } else {
+            setLanguage('en');
+        }
+    </script>
 </body>
 
 </html>
