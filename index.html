@@ -1,521 +1,581 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tunga Eddy</title>
+    <title>Tunga Eddy — Digital Discipline Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* --- RESET & BASIC SETUP --- */
         :root {
-            --bg-deep: #030305;
-            --bg-surface: #0a0a0f;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --accent-primary: #6366F1;
-            /* Indigo */
-            --accent-secondary: #A855F7;
-            /* Purple */
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
+            --bg: #03030A;
+            --surface: #0C0C18;
+            --surface2: #12121F;
+            --border: rgba(255,255,255,0.07);
+            --border-strong: rgba(255,255,255,0.14);
+            --accent: #6366F1;
+            --accent2: #A855F7;
+            --text: #F0EEF8;
+            --muted: #6B6880;
+            --green: #39FF14;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             overflow-x: hidden;
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
+        a { text-decoration: none; color: inherit; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1,
-        h2,
-        h3,
-        .brand-font {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- LAYOUT UTILITIES --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        /* --- COMPONENTS --- */
-        .btn-glow {
-            display: inline-block;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            color: white;
-            border-radius: 50px;
-            font-weight: 600;
-            font-family: 'Outfit', sans-serif;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
-        }
-
-        /* --- NAVBAR --- */
+        /* ── NAV ── */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
-            background: rgba(3, 3, 5, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 18px 0;
+            background: rgba(3,3,10,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
             z-index: 1000;
         }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 32px;
+            display: flex; align-items: center; justify-content: space-between;
         }
-
-        .nav-logo {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800; font-size: 1.2rem;
+            display: flex; align-items: center; gap: 10px;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
+        .logo-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
         }
-
+        .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-muted);
+            font-size: 0.9rem; font-weight: 500;
+            color: var(--muted); transition: color .2s;
         }
-
-        .nav-links a:hover {
-            color: white;
+        .nav-links a:hover { color: var(--text); }
+        .lang-wrap {
+            display: flex; gap: 4px;
+            padding: 4px; background: var(--surface2);
+            border-radius: 8px; border: 1px solid var(--border);
         }
-
-        .lang-switch {
-            display: flex;
-            gap: 10px;
-            margin-left: 20px;
-            border-left: 1px solid var(--glass-border);
-            padding-left: 20px;
-        }
-
         .lang-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Outfit', sans-serif;
+            background: none; border: none; cursor: pointer;
+            font-family: 'Syne', sans-serif; font-weight: 700;
+            font-size: 12px; color: var(--muted);
+            padding: 4px 10px; border-radius: 6px; transition: all .2s;
         }
-
         .lang-btn.active {
-            color: var(--accent-primary);
+            background: var(--accent); color: white;
         }
 
-        /* --- HERO SECTION --- */
+        /* ── HERO ── */
         .hero {
-            padding-top: 180px;
-            padding-bottom: 120px;
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
             text-align: center;
-            background-image: linear-gradient(to bottom, rgba(3, 3, 5, 0.7), var(--bg-deep)), url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-
-        /* --- WORK SECTION --- */
-        #work {
-            background-image: linear-gradient(to bottom, var(--bg-deep), rgba(3, 3, 5, 0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .project-card {
-            background: rgba(20, 20, 30, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            overflow: hidden;
-            margin-top: 40px;
-        }
-
-        .project-info {
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .tags {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid var(--glass-border);
-        }
-
-        .project-visual {
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-        }
-
-        .phone-mockup {
-            width: 220px;
-            height: 440px;
-            background: #000;
-            border-radius: 36px;
-            border: 8px solid #333;
+            padding: 160px 32px 80px;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            transform: rotate(-5deg);
-            transition: 0.3s;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(168,85,247,0.12) 0%, transparent 60%);
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+        }
+        .hero-content { position: relative; max-width: 800px; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(99,102,241,0.12);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 50px; padding: 6px 16px;
+            font-size: 12px; font-weight: 600;
+            color: #A5B4FC; letter-spacing: 1.5px;
+            text-transform: uppercase; margin-bottom: 28px;
+        }
+        .eyebrow-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #6366F1;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 800; line-height: 1.05;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-sub {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--muted); max-width: 520px;
+            margin: 0 auto 48px; line-height: 1.8;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: white; padding: 16px 36px;
+            border-radius: 50px; font-family: 'Syne', sans-serif;
+            font-weight: 700; font-size: 15px;
+            box-shadow: 0 8px 32px rgba(99,102,241,0.4);
+            transition: all .25s;
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(99,102,241,0.5);
         }
 
-        .project-card:hover .phone-mockup {
-            transform: rotate(0deg) scale(1.02);
+        /* ── SECTIONS ── */
+        .section {
+            max-width: 1200px; margin: 0 auto;
+            padding: 120px 32px;
+        }
+        .section-label {
+            font-size: 11px; font-weight: 700;
+            color: var(--accent); letter-spacing: 2px;
+            text-transform: uppercase; margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800; margin-bottom: 16px;
+        }
+        .section-sub {
+            color: var(--muted); font-size: 1.05rem;
+            max-width: 500px; line-height: 1.8; margin-bottom: 56px;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
         }
 
-        /* --- ROADMAP SECTION --- */
-        #roadmap {
-            background-image: linear-gradient(to bottom, rgba(3, 3, 5, 0.9), var(--bg-deep)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+        /* ── PROJECT CARD ── */
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            border-radius: 28px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            transition: border-color .3s;
         }
+        .project-card:hover { border-color: rgba(99,102,241,0.4); }
+        .project-info { padding: 64px; display: flex; flex-direction: column; justify-content: center; }
+        .tags { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tag {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border-strong);
+            padding: 5px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 600; color: var(--muted);
+        }
+        .project-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem; font-weight: 800; margin-bottom: 16px;
+        }
+        .project-info p { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 32px; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: white; padding: 14px 28px; border-radius: 50px;
+            font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;
+            width: fit-content;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+            transition: all .25s;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.5); }
+        .project-visual {
+            background: radial-gradient(ellipse at center, rgba(99,102,241,0.08) 0%, transparent 70%);
+            display: flex; align-items: center; justify-content: center;
+            min-height: 440px; position: relative;
+        }
+        .phone {
+            width: 200px; height: 400px;
+            background: #0a0a12;
+            border-radius: 32px; border: 1.5px solid rgba(255,255,255,0.12);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 24px;
+            transform: rotate(-4deg);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+            transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+        }
+        .project-card:hover .phone { transform: rotate(0deg) scale(1.03); }
+        .phone-lock { font-size: 3rem; margin-bottom: 12px; }
+        .phone-status { color: #FF5252; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 2px; margin-bottom: 8px; }
+        .phone-hint { color: var(--muted); font-size: 12px; }
 
+        /* ── ROADMAP ── */
         .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
         }
-
         .roadmap-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 20px;
-            transition: 0.3s;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 32px; border-radius: 20px;
+            transition: all .3s;
+            position: relative; overflow: hidden;
+        }
+        .roadmap-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            opacity: 0; transition: opacity .3s;
+        }
+        .roadmap-card:hover { border-color: rgba(99,102,241,0.3); }
+        .roadmap-card:hover::before { opacity: 1; }
+        .roadmap-card.active { border-color: rgba(99,102,241,0.3); }
+        .roadmap-card.active::before { opacity: 1; }
+        .road-date {
+            font-family: 'Syne', sans-serif;
+            font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .roadmap-card.active .road-date { color: var(--green); }
+        .road-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;
+        }
+        .road-desc { color: var(--muted); font-size: 14px; line-height: 1.7; }
+        .active-badge {
+            display: inline-block; background: rgba(57,255,20,0.1);
+            border: 1px solid rgba(57,255,20,0.25);
+            color: var(--green); font-size: 11px; font-weight: 700;
+            padding: 3px 10px; border-radius: 20px;
+            letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
         }
 
-        .roadmap-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: var(--accent-primary);
+        /* ── ABOUT ── */
+        .about-wrap {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
         }
-
-        .date {
-            color: var(--accent-primary);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
+        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .stat-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px;
         }
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+        .stat-label { color: var(--muted); font-size: 13px; }
 
-        /* --- CONTACT & FOOTER --- */
-        .contact-box {
+        /* ── CONTACT ── */
+        .contact-inner {
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            border-radius: 28px; padding: 80px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), transparent);
-            padding: 60px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
+            background-image: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 70%);
         }
+        .contact-inner h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 16px;
+        }
+        .contact-inner p { color: var(--muted); margin-bottom: 36px; font-size: 15px; }
 
+        /* ── FOOTER ── */
         footer {
-            padding: 40px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: auto;
-            border-top: 1px solid var(--glass-border);
-            background: var(--bg-deep);
+            border-top: 1px solid var(--border);
+            padding: 40px 32px;
         }
-
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 20px;
+        }
+        .footer-logo {
+            font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem;
+            display: flex; align-items: center; gap: 8px; color: var(--muted);
+        }
+        .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
         .footer-links a {
-            margin: 0 15px;
-            color: var(--text-main);
+            font-size: 14px; color: var(--muted); transition: color .2s;
         }
+        .footer-links a:hover { color: var(--text); }
+        .footer-copy { font-size: 13px; color: var(--muted); }
 
-        .footer-links a:hover {
-            color: var(--accent-primary);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .project-card {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .project-card { grid-template-columns: 1fr; }
+            .project-visual { min-height: 280px; }
+            .roadmap-grid { grid-template-columns: 1fr; }
+            .about-wrap { grid-template-columns: 1fr; gap: 48px; }
+            .contact-inner { padding: 48px 28px; }
+            .nav-links { display: none; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
         }
     </style>
 </head>
-
 <body>
 
-    <nav>
-        <div class="container nav-content">
-            <a href="#" class="nav-logo">
-                <div
-                    style="width:20px; height:20px; background:var(--accent-primary); border-radius:4px; margin-right:8px;">
-                </div>
-                Tunga Eddy
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-dot"></div>
+            Tunga Eddy
+        </a>
+        <div class="nav-links">
+            <a href="#work" id="nav-work">Work</a>
+            <a href="#roadmap" id="nav-roadmap">Roadmap</a>
+            <a href="#about" id="nav-about">About</a>
+            <a href="#contact" id="nav-contact">Contact</a>
+        </div>
+        <div class="lang-wrap">
+            <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+        <div class="hero-eyebrow">
+            <div class="eyebrow-dot"></div>
+            <span id="eyebrow-text">Digital Discipline Studio</span>
+        </div>
+        <h1 id="hero-title">Crafting Digital<br>Discipline.</h1>
+        <p class="hero-sub" id="hero-sub">Premium experiences that bridge the physical and digital worlds. Focusing on health, productivity, and gaming.</p>
+        <a href="#work" class="hero-cta" id="hero-cta">
+            <span id="hero-cta-text">View Our Work</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+<hr class="divider">
+
+<!-- WORK -->
+<div class="section" id="work">
+    <div class="section-label" id="work-label">Featured Project</div>
+    <h2 class="section-title" id="work-title">SweatLock</h2>
+    <p class="section-sub" id="work-sub">The app that makes you earn your screen time through physical exercise.</p>
+
+    <div class="project-card">
+        <div class="project-info">
+            <div class="tags">
+                <span class="tag">Android</span>
+                <span class="tag">AI / ML Kit</span>
+                <span class="tag">Firebase</span>
+            </div>
+            <h3 id="proj-title">SweatLock</h3>
+            <p id="proj-desc">Lock Instagram, TikTok, and YouTube. Unlock them only by completing squats, push-ups, or planks — verified by on-device AI. V2 brings badge tiers, leaderboards, and social competition.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.sweatlock.app" target="_blank" class="btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 0 2.16-.21l12.5-7.27-3.5-3.5L3.18 23.76zm-1.1-21.4C1.76 2.8 2 3.3 2 3.9v16.2c0 .6.24 1.1.58 1.54L13.86 12 2.08 2.36zM21.54 9.7l-2.94-1.72-3.88 3.88 3.88 3.88 2.97-1.73A2.24 2.24 0 0 0 23 12a2.24 2.24 0 0 0-1.46-2.3zM5.34.45a2 2 0 0 0-2.16-.2L14.5 11.57l3.5-3.5L5.34.45z"/></svg>
+                <span id="proj-btn">Get on Google Play</span>
             </a>
-            <div class="nav-links">
-                <a href="#work" id="nav-work">Work</a>
-                <a href="#roadmap" id="nav-roadmap">Roadmap</a>
-                <a href="#about" id="nav-about">About</a>
-                <a href="#contact" id="nav-contact">Contact</a>
-            </div>
-            <div class="lang-switch">
-                <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" id="btn-tr" onclick="setLanguage('tr')">TR</button>
+        </div>
+        <div class="project-visual">
+            <div class="phone">
+                <div class="phone-lock">🔒</div>
+                <div class="phone-status">LOCKED</div>
+                <div class="phone-hint" id="phone-hint">15 Squats to unlock</div>
             </div>
         </div>
-    </nav>
+    </div>
+</div>
 
-    <section class="hero">
-        <div class="container">
-            <h1 id="hero-title">Crafting Digital<br>Discipline.</h1>
-            <p class="hero-subtitle" id="hero-subtitle">We build premium experiences that bridge the physical and
-                digital worlds. Focusing on health, productivity, and gaming.</p>
-            <a href="#work" class="btn-glow" id="hero-cta">View Our Work</a>
+<hr class="divider">
+
+<!-- ROADMAP -->
+<div class="section" id="roadmap">
+    <div class="section-label" id="road-label">Product Roadmap</div>
+    <h2 class="section-title" id="road-title">What's coming next</h2>
+    <p class="section-sub" id="road-sub">SweatLock is actively evolving. Here's where we're headed.</p>
+
+    <div class="roadmap-grid">
+        <div class="roadmap-card active">
+            <div class="active-badge" id="badge-now">Now</div>
+            <div class="road-title" id="phase1-title">SweatLock V2</div>
+            <p class="road-desc" id="phase1-desc">Badge tier system, hidden achievements, Arena leaderboard, Nemesis mode, and Liga system. Premium UX overhaul with Glassmorphism & Lottie.</p>
         </div>
-    </section>
+        <div class="roadmap-card">
+            <div class="road-date" id="phase2-date">Q3 2026</div>
+            <div class="road-title" id="phase2-title">iOS Expansion</div>
+            <p class="road-desc" id="phase2-desc">Bringing SweatLock to Apple devices with full Screen Time API integration and iCloud sync.</p>
+        </div>
+        <div class="roadmap-card">
+            <div class="road-date" id="phase3-date">Future</div>
+            <div class="road-title" id="phase3-title">PC & Cross-Platform</div>
+            <p class="road-desc" id="phase3-desc">Desktop productivity lock for deep work sessions. Cross-platform leaderboards and tribe competitions.</p>
+        </div>
+    </div>
+</div>
 
-    <section id="work">
-        <div class="container">
-            <h2 id="work-title">Featured Project</h2>
-            <div class="project-card">
-                <div class="project-info">
-                    <div class="tags">
-                        <span class="tag">Android</span>
-                        <span class="tag">AI / ML</span>
-                    </div>
-                    <h3>SweatLock</h3>
-                    <p style="color:var(--text-muted); margin-bottom: 30px;" id="sweatlock-details">
-                        The ultimate digital detox tool. Lock your apps and unlock them only by performing physical
-                        exercises verified by AI.
-                    </p>
-                    <a href="https://play.google.com/store/apps/details?id=com.sweatlock.app" target="_blank"
-                        class="btn-glow">
-                        <span id="btn-play">Get on Google Play</span>
-                    </a>
-                </div>
-                <div class="project-visual">
-                    <div class="phone-mockup">
-                        <div style="font-size:3rem; margin-bottom:10px;">🔒</div>
-                        <div style="color:#ff5555; font-weight:bold;">LOCKED</div>
-                        <div style="color:#888; font-size:0.8rem; margin-top:5px;">15 Squats to unlock</div>
-                    </div>
-                </div>
+<hr class="divider">
+
+<!-- ABOUT -->
+<div class="section" id="about">
+    <div class="about-wrap">
+        <div>
+            <div class="section-label" id="about-label">About</div>
+            <h2 class="section-title" id="about-title">Tunga Eddy</h2>
+            <p style="color:var(--muted); line-height:1.9; font-size:15px;" id="about-text">Founded with a singular mission: to reclaim human agency in a digital world. We believe technology should serve us, not drain us. Our apps create friction where it's needed and flow where it matters.</p>
+        </div>
+        <div class="about-stats">
+            <div class="stat-card">
+                <div class="stat-num">10+</div>
+                <div class="stat-label" id="stat1">Languages Supported</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">V2</div>
+                <div class="stat-label" id="stat2">Active Development</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">0</div>
+                <div class="stat-label" id="stat3">Data Sold</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">100%</div>
+                <div class="stat-label" id="stat4">On-Device AI</div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <section id="roadmap">
-        <div class="container">
-            <h2 id="roadmap-title">Roadmap</h2>
-            <div class="roadmap-grid">
-                <div class="roadmap-card">
-                    <span class="date" id="phase1-date">Current Phase</span>
-                    <h3>SweatLock V2</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;" id="phase1-desc">Introducing Social Battle
-                        Mode and Focus Leagues.</p>
-                </div>
-                <div class="roadmap-card">
-                    <span class="date" id="phase2-date">Q3 2026</span>
-                    <h3>iOS Expansion</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;" id="phase2-desc">Bringing the SweatLock
-                        experience to Apple devices.</p>
-                </div>
-                <div class="roadmap-card">
-                    <span class="date" id="phase3-date">Future</span>
-                    <h3>PC & Cross-Platform</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;" id="phase3-desc">Desktop solutions for
-                        productivity styling.</p>
-                </div>
-            </div>
+<hr class="divider">
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+    <div class="contact-inner">
+        <h2 id="contact-title">Ready to collaborate?</h2>
+        <p id="contact-sub">We are always open to new ideas and partnerships.</p>
+        <a href="mailto:tungaeddystudio@gmail.com" class="btn-primary" style="margin:0 auto;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span id="contact-btn">Email Us</span>
+        </a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <div class="logo-dot"></div>
+            Tunga Eddy
         </div>
-    </section>
-
-    <section id="about">
-        <div class="container" style="text-align: center; max-width: 800px;">
-            <h2 id="about-title">About Tunga Eddy</h2>
-            <p style="color:var(--text-muted); font-size:1.1rem;" id="about-text">
-                Founded with a singular mission: to reclaim human agency in a digital world. We believe technology
-                should serve us, not drain us.
-            </p>
+        <div class="footer-links">
+            <a href="privacy.html" id="link-privacy">Privacy Policy</a>
+            <a href="delete-account.html" id="link-delete">Delete Account</a>
+            <a href="mailto:tungaeddystudio@gmail.com" id="link-support">Support</a>
         </div>
-    </section>
+        <div class="footer-copy" id="footer-copy">&copy; 2025 Tunga Eddy. All rights reserved.</div>
+    </div>
+</footer>
 
-    <section id="contact">
-        <div class="container">
-            <div class="contact-box">
-                <h2 id="contact-title">Ready to collaborate?</h2>
-                <p style="margin-bottom: 30px; color:var(--text-muted);" id="contact-subtitle">We are always open to new
-                    ideas and partnerships.</p>
-                <a href="mailto:tungaeddystudio@gmail.com" class="btn-glow" id="contact-btn">Email Us</a>
-            </div>
-        </div>
-    </section>
+<script>
+const T = {
+    en: {
+        'eyebrow-text':'Digital Discipline Studio',
+        'hero-title':'Crafting Digital<br>Discipline.',
+        'hero-sub':'Premium experiences that bridge the physical and digital worlds. Focusing on health, productivity, and gaming.',
+        'hero-cta-text':'View Our Work',
+        'work-label':'Featured Project',
+        'work-title':'SweatLock',
+        'work-sub':'The app that makes you earn your screen time through physical exercise.',
+        'proj-title':'SweatLock',
+        'proj-desc':'Lock Instagram, TikTok, and YouTube. Unlock them only by completing squats, push-ups, or planks — verified by on-device AI. V2 brings badge tiers, leaderboards, and social competition.',
+        'proj-btn':'Get on Google Play',
+        'phone-hint':'15 Squats to unlock',
+        'road-label':'Product Roadmap',
+        'road-title':'What\'s coming next',
+        'road-sub':'SweatLock is actively evolving. Here\'s where we\'re headed.',
+        'badge-now':'Now',
+        'phase1-title':'SweatLock V2',
+        'phase1-desc':'Badge tier system, hidden achievements, Arena leaderboard, Nemesis mode, and Liga system. Premium UX overhaul with Glassmorphism & Lottie.',
+        'phase2-date':'Q3 2026',
+        'phase2-title':'iOS Expansion',
+        'phase2-desc':'Bringing SweatLock to Apple devices with full Screen Time API integration and iCloud sync.',
+        'phase3-date':'Future',
+        'phase3-title':'PC & Cross-Platform',
+        'phase3-desc':'Desktop productivity lock for deep work sessions. Cross-platform leaderboards and tribe competitions.',
+        'about-label':'About',
+        'about-title':'Tunga Eddy',
+        'about-text':'Founded with a singular mission: to reclaim human agency in a digital world. We believe technology should serve us, not drain us. Our apps create friction where it\'s needed and flow where it matters.',
+        'stat1':'Languages Supported',
+        'stat2':'Active Development',
+        'stat3':'Data Sold',
+        'stat4':'On-Device AI',
+        'contact-title':'Ready to collaborate?',
+        'contact-sub':'We are always open to new ideas and partnerships.',
+        'contact-btn':'Email Us',
+        'nav-work':'Work','nav-roadmap':'Roadmap','nav-about':'About','nav-contact':'Contact',
+        'link-privacy':'Privacy Policy','link-delete':'Delete Account','link-support':'Support',
+        'footer-copy':'© 2025 Tunga Eddy. All rights reserved.'
+    },
+    tr: {
+        'eyebrow-text':'Dijital Disiplin Stüdyosu',
+        'hero-title':'Dijital Disiplini<br>Tasarlıyoruz.',
+        'hero-sub':'Fiziksel ve dijital dünyayı birleştiren premium deneyimler. Sağlık, üretkenlik ve oyun odaklı.',
+        'hero-cta-text':'Projeleri Gör',
+        'work-label':'Öne Çıkan Proje',
+        'work-title':'SweatLock',
+        'work-sub':'Ekran süreni fiziksel egzersizle kazanmanı sağlayan uygulama.',
+        'proj-title':'SweatLock',
+        'proj-desc':'Instagram, TikTok ve YouTube\'yu kilitle. Sadece squat, şınav veya plank yaparak — cihaz üstü YZ ile doğrulanmış — aç. V2 ile rozet sistemi, liderboard ve sosyal rekabet geliyor.',
+        'proj-btn':'Google Play\'de İndir',
+        'phone-hint':'15 Squat yaparak aç',
+        'road-label':'Ürün Yol Haritası',
+        'road-title':'Sırada ne var',
+        'road-sub':'SweatLock aktif geliştirme aşamasında. İşte gidiyoruz.',
+        'badge-now':'Şimdi',
+        'phase1-title':'SweatLock V2',
+        'phase1-desc':'Rozet tier sistemi, gizli başarılar, Arena liderboardu, Nemesis modu ve Liga sistemi. Glassmorphism & Lottie ile premium UX.',
+        'phase2-date':'3. Çeyrek 2026',
+        'phase2-title':'iOS Genişlemesi',
+        'phase2-desc':'Screen Time API entegrasyonu ve iCloud sync ile SweatLock\'u Apple cihazlarına taşıyoruz.',
+        'phase3-date':'Gelecek',
+        'phase3-title':'PC & Cross-Platform',
+        'phase3-desc':'Derin çalışma seansları için masaüstü kilit. Platformlar arası liderboard ve klan rekabeti.',
+        'about-label':'Hakkında',
+        'about-title':'Tunga Eddy',
+        'about-text':'Tek bir misyonla kuruldu: Dijital dünyada insan iradesini geri kazanmak. Teknolojinin bizi tüketmek yerine bize hizmet etmesi gerektiğine inanıyoruz.',
+        'stat1':'Desteklenen Dil',
+        'stat2':'Aktif Geliştirme',
+        'stat3':'Satılan Veri',
+        'stat4':'Cihaz Üstü YZ',
+        'contact-title':'İşbirliğine hazır mısınız?',
+        'contact-sub':'Yeni fikirlere ve ortaklıklara her zaman açığız.',
+        'contact-btn':'E-posta Gönder',
+        'nav-work':'Projeler','nav-roadmap':'Yol Haritası','nav-about':'Hakkımızda','nav-contact':'İletişim',
+        'link-privacy':'Gizlilik Politikası','link-delete':'Hesabı Sil','link-support':'Destek',
+        'footer-copy':'© 2025 Tunga Eddy. Tüm hakları saklıdır.'
+    }
+};
 
-    <footer>
-        <div class="container">
-            <div class="footer-links" style="margin-bottom: 20px;">
-                <a href="privacy.html" id="link-privacy">Privacy Policy</a>
-                <a href="mailto:tungaeddystudio@gmail.com" id="link-support">Support</a>
-            </div>
-            <p>&copy; 2026 Tunga Eddy. All rights reserved.</p>
-        </div>
-    </footer>
+function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('btn-' + lang).classList.add('active');
+    const t = T[lang];
+    for (const key in t) {
+        const el = document.getElementById(key);
+        if (el) el.innerHTML = t[key];
+    }
+}
 
-    <script>
-        const content = {
-            'en': {
-                'nav-work': 'Work', 'nav-roadmap': 'Roadmap', 'nav-about': 'About', 'nav-contact': 'Contact',
-                'hero-title': 'Crafting Digital<br>Discipline.',
-                'hero-subtitle': 'We build premium experiences that bridge the physical and digital worlds. Focusing on health, productivity, and gaming.',
-                'hero-cta': 'View Our Work',
-                'work-title': 'Featured Project',
-                'sweatlock-details': 'Seamlessly integrates physical activity into your digital life. Features real-time pose detection, strict locking modes, and a reward system built on sweat.',
-                'btn-play': 'Get on Google Play',
-                'roadmap-title': 'Roadmap',
-                'phase1-date': 'Current Phase', 'phase1-desc': 'Introducing Social Battle Mode and Focus Leagues. Compete with friends to stay disciplined.',
-                'phase2-date': 'Q3 2026', 'phase2-desc': 'Bringing the SweatLock experience to Apple devices with full ecosystem integration.',
-                'phase3-date': 'Future', 'phase3-desc': 'Desktop solutions for productivity management and hardcore gaming integration.',
-                'about-title': 'About Tunga Eddy', 'about-text': 'Founded with a singular mission: to reclaim human agency in a digital world. We believe technology should serve us, not drain us. Our apps are designed to create friction where it\'s needed and flow where it matters.',
-                'contact-title': 'Ready to collaborate?', 'contact-subtitle': 'We are always open to new ideas and partnerships.', 'contact-btn': 'Email Us',
-                'link-privacy': 'Privacy Policy', 'link-support': 'Support'
-            },
-            'tr': {
-                'nav-work': 'Projeler', 'nav-roadmap': 'Yol Haritası', 'nav-about': 'Hakkımızda', 'nav-contact': 'İletişim',
-                'hero-title': 'Dijital Disiplini<br>Tasarlıyoruz.',
-                'hero-subtitle': 'Fiziksel ve dijital dünyayı birleştiren premium deneyimler. Sağlık, üretkenlik ve oyun odaklı.',
-                'hero-cta': 'Projeleri Gör',
-                'work-title': 'Öne Çıkan Proje',
-                'sweatlock-details': 'Fiziksel aktiviteyi dijital hayatınıza sorunsuzca entegre eder. Gerçek zamanlı poz algılama, katı kilitleme modları ve ter dökmeye dayalı ödül sistemi.',
-                'btn-play': 'Google Play\'de İndir',
-                'roadmap-title': 'Yol Haritası',
-                'phase1-date': 'Mevcut Aşama', 'phase1-desc': 'Sosyal Savaş Modu ve Odak Ligleri. Arkadaşlarınızla disiplin için yarışın.',
-                'phase2-date': '3. Çeyrek 2026', 'phase2-desc': 'Tam ekosistem entegrasyonu ile SweatLock deneyimini Apple cihazlarına taşıyoruz.',
-                'phase3-date': 'Gelecek', 'phase3-desc': 'Üretkenlik yönetimi ve hardcore oyun entegrasyonu için masaüstü çözümleri.',
-                'about-title': 'Tunga Eddy Hakkında', 'about-text': 'Tek bir misyonla kuruldu: Dijital dünyada insan iradesini geri kazanmak. Teknolojinin bizi tüketmek yerine bize hizmet etmesi gerektiğine inanıyoruz. Uygulamalarımız, gereken yerde sürtünme, önemli olan yerde akış yaratmak için tasarlandı.',
-                'contact-title': 'İşbirliğine hazır mısınız?', 'contact-subtitle': 'Yeni fikirlere ve ortaklıklara her zaman açığız.', 'contact-btn': 'Bize E-posta Gönder',
-                'link-privacy': 'Gizlilik Politikası', 'link-support': 'Destek'
-            }
-        };
-
-        function setLanguage(lang) {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
-            const t = content[lang];
-            for (let key in t) {
-                const el = document.getElementById(key);
-                if (el) el.innerHTML = t[key];
-            }
-        }
-
-        // Auto Detect
-        const browserLang = navigator.language || navigator.userLanguage;
-        if (browserLang.toLowerCase().includes('tr')) {
-            setLanguage('tr');
-        } else {
-            setLanguage('en');
-        }
-    </script>
+const lang = (navigator.language || 'en').toLowerCase().includes('tr') ? 'tr' : 'en';
+setLang(lang);
+</script>
 </body>
-
 </html>
