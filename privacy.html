@@ -6,192 +6,199 @@
     <title>SweatLock - Privacy Policy</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #fff; min-height: 100vh; }
         h1 { color: #1a1a1a; font-size: 2rem; margin-bottom: 10px; }
         h2 { color: #2d2d2d; font-size: 1.4rem; margin-top: 35px; margin-bottom: 15px; border-bottom: 2px solid #4CAF50; padding-bottom: 8px; }
         h3 { color: #444; font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px; }
         p { margin-bottom: 15px; color: #555; }
-        ul { margin-left: 25px; margin-bottom: 15px; }
+        ul, ol { margin-left: 25px; margin-bottom: 15px; }
         li { margin-bottom: 8px; color: #555; }
         .updated { color: #888; font-size: 14px; margin-bottom: 30px; }
         .highlight { background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #4CAF50; }
         .warning { background: #fff3e0; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #ff9800; }
+        .danger { background: #fce4ec; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #e91e63; }
         a { color: #4CAF50; }
         table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; font-size: 14px; }
         th { background: #f5f5f5; }
+        .delete-btn { display: inline-block; background: #e91e63; color: white; padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; margin-top: 10px; }
+        .delete-btn:hover { background: #c2185b; color: white; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🔒 SweatLock Privacy Policy</h1>
-        <p class="updated">Effective Date: December 26, 2024 | Last Updated: December 26, 2024</p>
+        <p class="updated">Effective Date: December 26, 2024 | Last Updated: March 2025</p>
 
         <div class="highlight">
-            <strong>Summary:</strong> SweatLock processes camera data locally on your device for exercise detection. We do not store, record, or transmit your camera footage. Your privacy is our priority.
+            <strong>Summary:</strong> SweatLock processes camera data locally on your device for exercise detection. We do not store, record, or transmit your camera footage. Basic profile and exercise stats are synced to Firebase to preserve your progress across devices. You can delete your account and all data at any time.
         </div>
 
         <h2>1. Introduction</h2>
-        <p>Welcome to SweatLock ("we," "our," or "us"). SweatLock is a fitness discipline application that requires users to complete physical exercises before unlocking their device. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application.</p>
-        <p>By using SweatLock, you agree to the collection and use of information in accordance with this policy. If you do not agree with this policy, please do not use the application.</p>
+        <p>Welcome to SweatLock ("we," "our," or "us"). SweatLock is a fitness discipline application that requires users to complete physical exercises before accessing social media apps. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application.</p>
+        <p>By using SweatLock, you agree to the collection and use of information in accordance with this policy.</p>
 
         <h2>2. Information We Collect</h2>
-        
+
         <h3>2.1 Camera Data (Required Permission)</h3>
         <div class="highlight">
-            <strong>Important:</strong> Camera access is used ONLY for real-time pose detection during exercises. All processing happens locally on your device using Google ML Kit.
+            <strong>Important:</strong> Camera access is used ONLY for real-time pose detection during exercises. All processing happens locally on your device using Google ML Kit. No images or videos are ever recorded or transmitted.
         </div>
-        <ul>
-            <li><strong>What we access:</strong> Live camera feed during exercise sessions</li>
-            <li><strong>How we process:</strong> On-device AI pose detection (Google ML Kit)</li>
-            <li><strong>What we store:</strong> NOTHING - No images, videos, or camera data is recorded or saved</li>
-            <li><strong>What we transmit:</strong> NOTHING - Camera data never leaves your device</li>
-        </ul>
 
-        <h3>2.2 Exercise & Usage Data</h3>
+        <h3>2.2 Account & Profile Data (Firebase)</h3>
+        <p>When you use SweatLock, the following data is synced to Firebase to preserve your progress across devices:</p>
         <table>
-            <tr><th>Data Type</th><th>Purpose</th><th>Storage</th></tr>
-            <tr><td>Exercise count (reps)</td><td>Track your progress</td><td>Local device only</td></tr>
-            <tr><td>Exercise type</td><td>Display statistics</td><td>Local device only</td></tr>
-            <tr><td>Unlock duration settings</td><td>App functionality</td><td>Local device only</td></tr>
-            <tr><td>App preferences</td><td>User experience</td><td>Local device only</td></tr>
+            <tr><th>Data</th><th>Purpose</th><th>Storage</th></tr>
+            <tr><td>Total reps completed</td><td>Progress tracking & badge tiers</td><td>Firebase Firestore</td></tr>
+            <tr><td>Current & max streak</td><td>Streak badges & leaderboard</td><td>Firebase Firestore</td></tr>
+            <tr><td>Total unlocks</td><td>Statistics</td><td>Firebase Firestore</td></tr>
+            <tr><td>Willpower sessions</td><td>Badge system</td><td>Firebase Firestore</td></tr>
+            <tr><td>Sweat Score</td><td>Ranking & leaderboard</td><td>Firebase Firestore</td></tr>
+            <tr><td>Username & avatar</td><td>Profile display</td><td>Firebase Firestore</td></tr>
+            <tr><td>Email & name (Google only)</td><td>Account identification</td><td>Firebase Firestore</td></tr>
+            <tr><td>Firebase Anonymous UID</td><td>Account linkage</td><td>Firebase Auth</td></tr>
         </table>
 
-        <h3>2.3 Anonymous Analytics Data</h3>
+        <h3>2.3 Local-Only Data (Never Transmitted)</h3>
+        <table>
+            <tr><th>Data</th><th>Purpose</th><th>Storage</th></tr>
+            <tr><td>Hidden badge progress</td><td>Secret achievements</td><td>Device only</td></tr>
+            <tr><td>Blocked app list</td><td>App blocking functionality</td><td>Device only</td></tr>
+            <tr><td>Hard mode / settings</td><td>App preferences</td><td>Device only</td></tr>
+            <tr><td>Daily session count</td><td>Usage limits</td><td>Device only</td></tr>
+        </table>
+
+        <h3>2.4 Anonymous Analytics Data</h3>
         <p>We collect anonymous, aggregated data to improve our application:</p>
         <ul>
             <li>App crashes and errors (via Firebase Crashlytics)</li>
             <li>Feature usage patterns (via Firebase Analytics)</li>
-            <li>Device type and OS version (for compatibility)</li>
-            <li>App performance metrics</li>
+            <li>Device type and OS version</li>
         </ul>
-        <p>This data is anonymized and cannot be used to identify you personally.</p>
 
-        <h3>2.4 Advertising Data</h3>
-        <p>We display advertisements through Google AdMob. AdMob may collect:</p>
+        <h3>2.5 Advertising Data</h3>
+        <p>We display advertisements through Google AdMob. AdMob may collect advertising ID and general region for ad personalization. You can opt out via device Google settings.</p>
+
+        <h2>3. Authentication Methods</h2>
+        <p>SweatLock supports two authentication methods:</p>
         <ul>
-            <li>Advertising ID (can be reset in device settings)</li>
-            <li>General location (country/region level only)</li>
-            <li>Device information for ad personalization</li>
+            <li><strong>Anonymous Auth:</strong> Automatically created on first launch. No email required. Data is tied to the device and UID.</li>
+            <li><strong>Google Sign-In:</strong> Optional. Links your Google account for cross-device sync and data recovery. Email and display name are stored.</li>
         </ul>
-        <p>You can opt out of personalized ads in your device's Google settings.</p>
 
-        <h2>3. How We Use Your Information</h2>
+        <h2>4. How We Use Your Information</h2>
         <ul>
             <li><strong>Core Functionality:</strong> Detect exercises and count repetitions</li>
-            <li><strong>Progress Tracking:</strong> Show your exercise history and streaks</li>
+            <li><strong>Progress Tracking:</strong> Show exercise history, streaks, and badges</li>
+            <li><strong>Leaderboard:</strong> Display your Sweat Score ranking against other users</li>
+            <li><strong>Badge System:</strong> Award tier upgrades and hidden badges based on activity</li>
+            <li><strong>Cross-Device Sync:</strong> Restore progress if you reinstall the app</li>
             <li><strong>App Improvement:</strong> Fix bugs and improve performance</li>
             <li><strong>Advertising:</strong> Display relevant ads to support free app access</li>
-            <li><strong>Analytics:</strong> Understand how users interact with features</li>
         </ul>
 
-        <h2>4. Data Sharing and Disclosure</h2>
+        <h2>5. Data Sharing and Disclosure</h2>
         <div class="warning">
             <strong>We do NOT sell your personal data.</strong>
         </div>
-        <p>We may share anonymous, aggregated data with:</p>
+        <p>We share data only with:</p>
         <ul>
-            <li><strong>Google Analytics/Firebase:</strong> For anonymous usage analytics</li>
+            <li><strong>Firebase / Google:</strong> For authentication, database, analytics, and crash reporting</li>
             <li><strong>Google AdMob:</strong> For advertising purposes</li>
-            <li><strong>Legal Requirements:</strong> If required by law or legal process</li>
+            <li><strong>Leaderboard:</strong> Your username, avatar, and Sweat Score are visible to other SweatLock users on the leaderboard</li>
+            <li><strong>Legal Requirements:</strong> If required by law</li>
         </ul>
 
-        <h2>5. Third-Party Services</h2>
-        <p>SweatLock integrates with the following third-party services. Each has their own privacy policy:</p>
+        <h2>6. Data Retention</h2>
+        <ul>
+            <li><strong>Firebase data:</strong> Retained until account deletion is requested</li>
+            <li><strong>Local data:</strong> Stored until app uninstall or "Clear Data" in device settings</li>
+            <li><strong>Analytics data:</strong> Retained by Firebase per their policies (typically 14 months)</li>
+            <li><strong>Camera data:</strong> Never stored — real-time only</li>
+        </ul>
+
+        <h2>7. Account & Data Deletion</h2>
+        <div class="danger">
+            <strong>You have the right to permanently delete your account and all associated data.</strong>
+        </div>
+
+        <h3>Option 1 — In-App Deletion (Recommended)</h3>
+        <ol>
+            <li>Open SweatLock</li>
+            <li>Go to <strong>Settings</strong> tab</li>
+            <li>Scroll to bottom → tap <strong>"Delete Account"</strong></li>
+            <li>Confirm deletion</li>
+        </ol>
+        <p>This permanently deletes your Firebase Auth account, all Firestore data (profile, stats, badges, leaderboard entry), and clears local SharedPreferences.</p>
+
+        <h3>Option 2 — Web Request</h3>
+        <p>If you cannot access the app, submit a deletion request here:</p>
+        <a href="delete-account.html" class="delete-btn">Request Account Deletion</a>
+        <p style="margin-top:12px; font-size:13px; color:#888;">We will process your request within 30 days and confirm via email.</p>
+
+        <h3>Option 3 — Clear Local Data Only</h3>
+        <ol>
+            <li>Device Settings → Apps → SweatLock</li>
+            <li>Tap "Clear Data" or "Clear Storage"</li>
+        </ol>
+        <p>Note: This clears local data only. Firebase data persists until full account deletion.</p>
+
+        <h2>8. Your Rights</h2>
+        <ul>
+            <li><strong>Access:</strong> View your data within the app</li>
+            <li><strong>Deletion:</strong> Delete account via in-app or web request</li>
+            <li><strong>Correction:</strong> Edit username and avatar in Profile settings</li>
+            <li><strong>Opt-out of ads:</strong> Via Google Settings on device</li>
+            <li><strong>Revoke permissions:</strong> Via device settings (app functionality may be limited)</li>
+        </ul>
+
+        <h2>9. Data Security</h2>
+        <ul>
+            <li>Firebase Firestore security rules prevent users from reading or modifying other users' data</li>
+            <li>Users cannot decrease their own stats (anti-cheat protection in Firestore rules)</li>
+            <li>HTTPS for all network communication</li>
+            <li>Camera processing is 100% on-device</li>
+        </ul>
+
+        <h2>10. Third-Party Services</h2>
         <table>
             <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
             <tr><td>Google ML Kit</td><td>On-device pose detection</td><td><a href="https://developers.google.com/ml-kit/terms">ML Kit Terms</a></td></tr>
+            <tr><td>Firebase Auth</td><td>Anonymous & Google authentication</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
+            <tr><td>Firebase Firestore</td><td>User data storage</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
             <tr><td>Firebase Analytics</td><td>Anonymous analytics</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
             <tr><td>Firebase Crashlytics</td><td>Crash reporting</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
             <tr><td>Google AdMob</td><td>Advertising</td><td><a href="https://policies.google.com/privacy">Google Privacy</a></td></tr>
         </table>
 
-        <h2>6. Data Retention</h2>
-        <ul>
-            <li><strong>Local Data:</strong> Stored until you uninstall the app or clear app data</li>
-            <li><strong>Analytics Data:</strong> Retained by Firebase according to their policies (typically 14 months)</li>
-            <li><strong>Camera Data:</strong> Never stored - processed in real-time only</li>
-        </ul>
-
-        <h2>7. Data Security</h2>
-        <p>We implement appropriate security measures including:</p>
-        <ul>
-            <li>All data processing happens locally on your device</li>
-            <li>No cloud storage of personal exercise data</li>
-            <li>Secure communication protocols (HTTPS) for any network requests</li>
-            <li>Regular security updates and vulnerability patches</li>
-        </ul>
-
-        <h2>8. Your Rights and Choices</h2>
-        <h3>You have the right to:</h3>
-        <ul>
-            <li><strong>Access:</strong> View your exercise data within the app</li>
-            <li><strong>Delete:</strong> Uninstall app or clear data in device settings</li>
-            <li><strong>Opt-out of personalized ads:</strong> Via Google Settings on your device</li>
-            <li><strong>Reset Advertising ID:</strong> Via device settings</li>
-            <li><strong>Revoke camera permission:</strong> Via device settings (app will not function)</li>
-        </ul>
-
-        <h3>How to delete your data:</h3>
-        <ol>
-            <li>Go to Device Settings → Apps → SweatLock</li>
-            <li>Tap "Clear Data" or "Clear Storage"</li>
-            <li>Or simply uninstall the application</li>
-        </ol>
-
-        <h2>9. Children's Privacy (COPPA Compliance)</h2>
+        <h2>11. Children's Privacy (COPPA)</h2>
         <div class="warning">
             <strong>Age Restriction:</strong> SweatLock is intended for users aged 13 and older.
         </div>
-        <p>We do not knowingly collect personal information from children under 13 years of age. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at the email below, and we will delete such information.</p>
+        <p>We do not knowingly collect personal information from children under 13. If you believe your child has used SweatLock, contact us immediately at tungaeddystudio@gmail.com and we will delete all associated data.</p>
 
-        <h2>10. International Users</h2>
-        <p>If you are accessing SweatLock from outside Turkey, please be aware that your information may be processed in Turkey and other countries where our service providers operate. By using the app, you consent to this transfer.</p>
+        <h2>12. GDPR (European Users)</h2>
+        <p>If you are in the EEA, you have rights under GDPR including access, rectification, erasure, restriction, portability, and objection. To exercise these rights, contact us or use the account deletion feature.</p>
 
-        <h2>11. California Privacy Rights (CCPA)</h2>
-        <p>California residents have additional rights under the CCPA:</p>
-        <ul>
-            <li>Right to know what personal information is collected</li>
-            <li>Right to delete personal information</li>
-            <li>Right to opt-out of sale of personal information (we do not sell data)</li>
-            <li>Right to non-discrimination for exercising privacy rights</li>
-        </ul>
+        <h2>13. CCPA (California Users)</h2>
+        <p>California residents have rights to know, delete, and opt-out of sale of personal information. We do not sell personal data. Contact us to exercise your rights.</p>
 
-        <h2>12. European Users (GDPR)</h2>
-        <p>If you are in the European Economic Area, you have rights under GDPR including:</p>
-        <ul>
-            <li>Access to your personal data</li>
-            <li>Rectification of inaccurate data</li>
-            <li>Erasure of your data</li>
-            <li>Restriction of processing</li>
-            <li>Data portability</li>
-            <li>Objection to processing</li>
-        </ul>
+        <h2>14. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy. Changes take effect immediately upon posting. Significant changes will be communicated via in-app notification.</p>
 
-        <h2>13. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be effective immediately upon posting. We will notify you of significant changes through:</p>
-        <ul>
-            <li>In-app notification</li>
-            <li>Update to the "Last Updated" date above</li>
-        </ul>
-        <p>Continued use of SweatLock after changes constitutes acceptance of the new policy.</p>
-
-        <h2>14. Contact Us</h2>
-        <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+        <h2>15. Contact Us</h2>
         <div class="highlight">
             <strong>Email:</strong> tungaeddystudio@gmail.com<br>
             <strong>Developer:</strong> TungaEddyStudio<br>
+            <strong>Data Deletion:</strong> <a href="delete-account.html">delete-account.html</a><br>
             <strong>Response Time:</strong> Within 30 days
         </div>
 
-        <h2>15. Consent</h2>
-        <p>By downloading, installing, and using SweatLock, you acknowledge that you have read, understood, and agree to be bound by this Privacy Policy.</p>
-
         <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
         <p style="text-align: center; color: #888; font-size: 13px;">
-            © 2024 SweatLock by TungaEddyStudio. All rights reserved.<br>
-            This privacy policy was last updated on December 26, 2024.
+            © 2026 SweatLock by TungaEddyStudio. All rights reserved.<br>
+            Last updated: March 2026
         </p>
     </div>
 </body>
